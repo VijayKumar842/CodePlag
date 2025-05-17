@@ -651,7 +651,7 @@ body {
   transform: translateX(-3px);
 }
 
-
+/* Loading indicator with improved animation */
 .loading {
   display: inline-block;
   width: 1rem;
@@ -673,7 +673,7 @@ body {
   100% { transform: rotate(360deg); }
 }
 
-
+/* Page transition effects */
 .page-transition {
   animation: fadeIn 0.5s ease;
 }
@@ -683,7 +683,7 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-
+/* Hidden elements with fade effect */
 .hidden {
   display: none;
   opacity: 0;
@@ -696,7 +696,7 @@ body {
   animation: fadeIn 0.5s ease forwards;
 }
 
-
+/* Scroll reveal effect - add this class to elements you want to animate on scroll */
 .scroll-reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -708,7 +708,7 @@ body {
   transform: translateY(0);
 }
 
-
+/* Add a subtle pulse animation for attention-grabbing elements */
 @keyframes pulse {
   0% { transform: scale(1); }
   50% { transform: scale(1.05); }
@@ -719,7 +719,9 @@ body {
   animation: pulse 2s infinite;
 }
 
+/* No dark mode - using original light theme colors */
 
+/* Add a smooth color shift effect for primary colored elements */
 @keyframes colorShift {
   0% { filter: hue-rotate(0deg); }
   50% { filter: hue-rotate(10deg); }
@@ -729,3 +731,4 @@ body {
 .color-shift {
   animation: colorShift 5s infinite;
 }
+
