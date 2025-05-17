@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Plagiarism Detector</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <h1 class="logo">
+        <span class="logo-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 12h6"></path>
+            <path d="M22 12h-6"></path>
+            <path d="M12 2v6"></path>
+            <path d="M12 22v-6"></path>
+            <path d="M20 16l-4-4 4-4"></path>
+            <path d="M4 8l4 4-4 4"></path>
+          </svg>
+        </span>
+        Code Plagiarism Detector
+      </h1>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#upload">Upload</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <section class="hero">
+    <h1>Advanced Code Similarity Detection</h1>
+    <p>Detect similar code patterns, plagiarism, and similarities using state-of-the-art BERT and AST analysis algorithms.</p>
+    <a href="#upload" class="btn">Get Started</a>
+  </section>
+  
+  <div class="features">
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"></path>
+        </svg>
+      </div>
+      <h3>BERT Analysis</h3>
+      <p>Use BERT's language understanding to identify semantic similarities in code, even when variables and structure differ.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+          <path d="M2 17l10 5 10-5"></path>
+          <path d="M2 12l10 5 10-5"></path>
+        </svg>
+      </div>
+      <h3>AST Comparison</h3>
+      <p>Analyze Abstract Syntax Trees to identify structural similarities regardless of code formatting or variable naming.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+      </div>
+      <h3>Visual Reports</h3>
+      <p>Get intuitive visualizations and detailed reports highlighting potential code similarities and plagiarism patterns.</p>
+    </div>
+  </div>
+  
+  <section id="home" class="section">
+    <div class="section-title">
+      <h2>Submit GitHub Repository</h2>
+      <p>Add your GitHub repository URL to analyze the code structure and similarities</p>
+    </div>
+    
+    <div class="github-box">
+      <div class="input-group">
+        <input type="text" id="repoUrl" placeholder="Enter GitHub repo URL (e.g., https://github.com/username/repository)" class="input-box" />
+        <button class="btn" id="fetchRepoBtn">Fetch Repository</button>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Add Repository</h3>
+          <p>Enter the GitHub URL of the repository you want to analyze</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Select Files</h3>
+          <p>Choose which files to include in the plagiarism detection</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>View Results</h3>
+          <p>Get detailed visual reports of code similarity analysis</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="upload" class="section">
+    <div class="section-title">
+      <h2>Upload Assignments</h2>
+      <p>Upload multiple files or select from fetched GitHub repository</p>
+    </div>
+    
+    <div class="upload-area" id="dropZone">
+      <div class="upload-icon">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="17 8 12 3 7 8"></polyline>
+          <line x1="12" y1="3" x2="12" y2="15"></line>
+        </svg>
+      </div>
+      <h3>Drag & Drop Files Here</h3>
+      <p>Or click to browse your computer</p>
+      <button class="btn" id="browseBtn" style="margin-top: 1rem;">Browse Files</button>
+      <input type="file" id="fileInput" multiple style="display: none;" />
+    </div>
+    
+    <div style="margin-top: 2rem;">
+      <h3>Fetched Files</h3>
+      <p>Files fetched from the GitHub repository will be displayed here for selection.</p>
+      <div id="fetchedFiles" class="fetched-files-container"></div>
+    </div>
+  </section>
+  
+  <section id="results" class="section">
+    <div class="section-title">
+      <h2>Similarity Report</h2>
+      <p>Visual and detailed results of code similarity analysis</p>
+    </div>
+    
+    <div class="results-preview">
+      <h3>Similarity Score Overview</h3>
+      <div class="result-graph" id="similarityGraph">
+        Similarity visualization graph will appear here
+      </div>
+      
+      <h3>Code Comparison</h3>
+      <p>Sample comparison of similar code segments:</p>
+      
+      <div class="comparison-grid" id="codeComparison">
+        <div>
+          <h4>File 1: main.js</h4>
+          <div class="code-box">
+            function <span class="highlight">calculateTotal</span>(items) {<br>
+            &nbsp;&nbsp;let total = 0;<br>
+            &nbsp;&nbsp;for (let i = 0; i < items.length; i++) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">total += items[i].price;</span><br>
+            &nbsp;&nbsp;}<br>
+            &nbsp;&nbsp;return total;<br>
+            }
+          </div>
+        </div>
+        <div>
+          <h4>File 2: utils.js</h4>
+          <div class="code-box">
+            function <span class="highlight">getSum</span>(productList) {<br>
+            &nbsp;&nbsp;let sum = 0;<br>
+            &nbsp;&nbsp;for (let i = 0; i < productList.length; i++) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">sum += productList[i].price;</span><br>
+            &nbsp;&nbsp;}<br>
+            &nbsp;&nbsp;return sum;<br>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="about" class="section">
+    <div class="section-title">
+      <h2>About The Tool</h2>
+      <p>Understanding how our plagiarism detection works</p>
+    </div>
+    
+    <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+      <p>The Code Plagiarism Detector uses a combination of BERT (Bidirectional Encoder Representations from Transformers) and AST (Abstract Syntax Tree) analysis to provide robust detection of similar code patterns and potential plagiarism.</p>
+      <br>
+      <p>Our tool is designed for educators, project managers, and code reviewers who need to ensure originality in submitted code. The system can detect similarities even when variable names have been changed or code has been restructured.</p>
+    </div>
+  </section>
+  
+  <footer class="footer">
+    <p>© 2025 Code Plagiarism Detector | All Rights Reserved</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/detection.js"></script>
+</body>
+</html>
