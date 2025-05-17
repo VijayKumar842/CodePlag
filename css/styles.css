@@ -719,9 +719,7 @@ body {
   animation: pulse 2s infinite;
 }
 
-/* No dark mode - using original light theme colors */
 
-/* Add a smooth color shift effect for primary colored elements */
 @keyframes colorShift {
   0% { filter: hue-rotate(0deg); }
   50% { filter: hue-rotate(10deg); }
@@ -731,4 +729,3 @@ body {
 .color-shift {
   animation: colorShift 5s infinite;
 }
-
